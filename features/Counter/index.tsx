@@ -1,11 +1,12 @@
-import styles from './Counter.module.css';
-import { decrement, increment, selectCount, selectStatus, incrementAsync } from './counterSlice';
+import styles from './counter.module.css';
+import { decrement, increment, selectCount, selectStatus } from './counterSlice';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import { sagaActions } from './counterActions';
 
 const Counter = () => {
   const dispatch = useAppDispatch();
   const count = useAppSelector(selectCount);
-	const status = useAppSelector(selectStatus);
+  const status = useAppSelector(selectStatus);
 
   return (
     <div>
@@ -29,7 +30,7 @@ const Counter = () => {
       <div className={styles.row}>
         <button
           className={styles.asyncButton}
-          onClick={() => dispatch(incrementAsync(2))}
+          onClick={() => dispatch({ type: sagaActions.FETCH_DATA_SAGA, payload: 2 })}
         >
           {status === 'loading' ? 'loading' : 'Add Async'}
         </button>
