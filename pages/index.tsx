@@ -13,7 +13,7 @@ const IndexPage: NextPage = () => {
       </Head>
       <header className={styles.header}>
         <img src="/logo.svg" className={styles.logo} alt="logo" />
-				<Counter />
+        <Counter />
       </header>
     </div>
   )
