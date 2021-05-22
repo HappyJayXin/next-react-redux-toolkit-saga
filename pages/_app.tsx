@@ -1,10 +1,12 @@
-import { Provider } from 'react-redux'
-import type { AppProps } from 'next/app'
+import { Provider } from 'react-redux';
+import store from '../app/store';
+import type { AppProps } from 'next/app';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-  	<Component {...pageProps} />
-  )
+    <Provider store={store}>
+      <Component {...pageProps} />F
+    </Provider>
+  );
 }
-
-export default MyApp
+export default MyApp;
